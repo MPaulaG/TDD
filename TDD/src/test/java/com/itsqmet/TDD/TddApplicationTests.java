@@ -23,27 +23,27 @@ class TddApplicationTests {
 		assertEquals(5, addNum(3, 2));
 	}
 
-	public String checkNum(int[] numbers) {
-		if (numbers[0]%3==0) {
-		return "Fizz";
-	}else if (numbers[0]%5==0) {
-		return "Buzz";
-	}
-	return null;
-
+	public String divisionTest(int[] nums) {
+		if (nums[0] % 15 == 0) {
+			return "FizzBuzz";
+		} else if (nums[0] % 3 == 0) {
+			return "Fizz";
+		} else if (nums[0] % 5 == 0) {
+			return "Buzz";
+		}
+		return divisionTest(nums);
 	}
 
 	@Test
 	void testFizz() {
-		int myArr [] = {3};
-		assertEquals("Fizz", checkNum(myArr));
-		myArr[0]=5;
-		assertEquals("Buzz", checkNum(myArr));
-		myArr[0]=15;
-		assertEquals("Buzz", checkNum(myArr));
-
+		int myArr[] = { 15 };
+		assertEquals("FizzBuzz", divisionTest(myArr));
+		myArr[0] = 3;
+		assertEquals("Fizz", divisionTest(myArr));
+		myArr[0] = 5;
+		assertEquals("Buzz", divisionTest(myArr));
+		myArr[0] = 5;
+		assertEquals("Buzz", divisionTest(myArr));
+	}
 	}
 }
-	
-
-
